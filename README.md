@@ -11,13 +11,13 @@ Deployed Application (**required**): [Music Playlist Explorer Deployed Site](ADD
 
 #### CORE FEATURES
 
-- [ ] **Display Playlists**
+- [x] **Display Playlists**
   - [x] Dynamically render playlists on the homepage using JavaScript.
     - [x] Playlists should be shown in grid view.
     - [x] Playlist images should be reasonably sized (at least 6 playlists on your laptop when full screen; large enough that the playlist components detailed in the next feature are legible).
-  - [x] Fetch data from a provided Javascript file and use it to create interactive playlist tiles.
+    - [x] Fetch data from a provided Javascript file and use it to create interactive playlist tiles.
 
-- [ ] **Playlist Components**
+- [x] **Playlist Components**
   - [x] Each tile should display the playlist's:
     - [x] Cover image
     - [x] Name
@@ -34,14 +34,14 @@ Deployed Application (**required**): [Music Playlist Explorer Deployed Site](ADD
       - [x] Title
       - [x] Artist
       - [x] Duration
-  - [ ] The modal itself should:
+  - [x] The modal itself should:
     - [x] Not occupy the entire screen.
-    - [ ] Have a shadow to show that it is a pop-up.
-    - [ ] Appear floating on the screen.
-    - [ ] The backdrop should appear darker or in a different shade.
+    - [x] Have a shadow to show that it is a pop-up.
+    - [x] Appear floating on the screen.
+    - [x] The backdrop should appear darker or in a different shade.
 
 - [ ] **Like Playlists**
-  - [ ] Implement functionality to allow users to like playlists by clicking a heart icon on each playlist tile.
+  - [x] Implement functionality to allow users to like playlists by clicking a heart icon on each playlist tile.
   - [x] When the heart icon is clicked:
     - [x] If previously unliked:
       - [x] The like count on the playlist tile should increase by 1.

@@ -27,12 +27,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const tile = document.createElement("div");
     tile.className = "playlist-tile";
     tile.innerHTML = `
-        <img src="${pl.playlist_art}" alt="${pl.playlist_name}">
-        <h3>${pl.playlist_name}</h3>
-        <p>By ${pl.playlist_author}</p>
-        <span class="heart-icon">&#x2665;</span>
-        <span class="like-count">${pl.likes}</span>
-      `;
+          <img src="${pl.playlist_art}" alt="${pl.playlist_name}">
+          <h3>${pl.playlist_name}</h3>
+          <p>By ${pl.playlist_author}</p>
+          <span class="heart-icon">&#x2665;</span>
+          <span class="like-count">${pl.likes}</span>
+        `;
 
     // open modal when clicking the tile (but not the heart)
     tile.addEventListener("click", (e) => {
@@ -68,13 +68,13 @@ document.addEventListener("DOMContentLoaded", () => {
     pl.songs.forEach((s) => {
       const li = document.createElement("li");
       li.innerHTML = `
-      <img src="song.png" alt="song cover" class="song-cover" />
-      <div class="song-info">
-        <p class="song-title">${s.title}</p>
-        <p class="song-artist">${s.artist}</p>
-      </div>
-      <span class="song-duration">${s.duration}</span>
-      `;
+        <img src="song.png" alt="song cover" class="song-cover" />
+        <div class="song-info">
+          <p class="song-title">${s.title}</p>
+          <p class="song-artist">${s.artist}</p>
+        </div>
+        <span class="song-duration">${s.duration}</span>
+        `;
       modalSongs.appendChild(li);
     });
     modal.classList.add("show");
