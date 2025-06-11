@@ -205,7 +205,7 @@
   }
   
   .modal-content-box {
-    background: rgba(255, 255, 255, 0.98);
+    background: rgba(59, 129, 131, 0.8);
     backdrop-filter: blur(20px);
     padding: 32px;
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -244,6 +244,7 @@
     flex-direction: row;
     align-items: flex-start;
     margin-bottom: 24px;
+    margin-left: 2.5rem;
     gap: 20px;
   }
   
@@ -266,15 +267,16 @@
   #modal-name {
     font-size: 1.8em;
     font-weight: 700;
-    color: #2c3e50;
+    color: #FAD089;
     margin: 0 0 8px 0;
     line-height: 1.2;
   }
   
   #modal-author {
     font-size: 1.1em;
-    color: #7f8c8d;
+    color: #ffffff;
     margin: 0;
+    padding-bottom: 1rem;
     font-weight: 400;
   }
   
@@ -324,6 +326,36 @@
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
     background: rgba(255, 255, 255, 0.95);
   }
+
+button {
+    border: none;
+    background: transparent;
+}
+
+#shuffleBtn .material-icons{
+    color:grey;
+}
+
+#shuffleBtn:active .material-icons {
+    color: #00FF00 !important;
+}
+
+#shuffleBtn.active .material-icons {
+    color: #00FF00 !important;
+}
+
+
+
+.material-icons  {
+    margin-left: 0;
+    padding: 0.5rem;
+    width: 40px;
+    height: auto;
+    margin-left: 0;
+    display: flex;    
+    border: none;
+    color:grey
+}
   
   .song-cover {
     border-radius: 8px;

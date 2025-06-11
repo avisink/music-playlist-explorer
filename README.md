@@ -24,7 +24,7 @@ Deployed Application (**required**): [Music Playlist Explorer Deployed Site](ADD
     - [x] Author
     - [x] Like count
 
-- [ ] **Playlist Details**
+- [x] **Playlist Details**
   - [x] Create a modal pop-up view that displays detailed information about a playlist when a user clicks on a playlist tile.
   - [x] The modal should show the playlist's:
     - [x] Cover image
@@ -40,7 +40,7 @@ Deployed Application (**required**): [Music Playlist Explorer Deployed Site](ADD
     - [x] Appear floating on the screen.
     - [x] The backdrop should appear darker or in a different shade.
 
-- [ ] **Like Playlists**
+- [x] **Like Playlists**
   - [x] Implement functionality to allow users to like playlists by clicking a heart icon on each playlist tile.
   - [x] When the heart icon is clicked:
     - [x] If previously unliked:
@@ -53,9 +53,9 @@ Deployed Application (**required**): [Music Playlist Explorer Deployed Site](ADD
       - [ ] a playlist with a like count of 0
       - [ ] a playlist with a non-zero like count
 
-- [ ] **Shuffle Songs**
-  - [ ] Enable users to shuffle the songs within a playlist using a shuffle button in the playlist's detail modal.
-  - [ ] When the shuffle button is clicked, the playlist's songs should display in a different order.
+- [x] **Shuffle Songs**
+  - [x] Enable users to shuffle the songs within a playlist using a shuffle button in the playlist's detail modal.
+  - [x] When the shuffle button is clicked, the playlist's songs should display in a different order.
   - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS:** In addition to showcasing the above features, for ease of grading, please show yourself shuffling the same playlist more than once. 
   
 - [ ] **Featured Page**

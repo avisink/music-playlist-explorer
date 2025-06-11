@@ -4,11 +4,20 @@
     <meta charset="utf-8" />
     <title>Playlist Explorer</title>
     <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
   <body>
 
     <header>
       <h1>Music Playlist Explorer</h1>
+      <nav>
+        <div class="navigation">
+            <ul>
+                <li><a href="featured.html">Featured Playlist</a></li>
+                <li><a href="#add-song"></a>Add Playlist</li>
+            </ul>
+        </div>
+      </nav>
     </header>
     <main>
       <div id="playlist-container" class="playlist-container"></div>
@@ -21,6 +30,7 @@
           <div>
             <h3 id="modal-name"></h3>
             <p id="modal-author"></p>
+            <div><button id="shuffleBtn"><i class="material-icons" style="font-size:48px;">shuffle</i></button></div>               
           </div> 
         </div>
         <ul id="modal-songs"></ul>
