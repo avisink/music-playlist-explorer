@@ -27,12 +27,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const tile = document.createElement("div");
     tile.className = "playlist-tile";
     tile.innerHTML = `
-          <img src="${pl.playlist_art}" alt="${pl.playlist_name}">
-          <h3>${pl.playlist_name}</h3>
-          <p>By ${pl.playlist_author}</p>
-          <span class="heart-icon">&#x2665;</span>
-          <span class="like-count">${pl.likes}</span>
-        `;
+            <img src="${pl.playlist_art}" alt="${pl.playlist_name}">
+            <h3>${pl.playlist_name}</h3>
+            <p>By ${pl.playlist_author}</p>
+            <span class="heart-icon">&#x2665;</span>
+            <span class="like-count">${pl.likes}</span>
+          `;
 
     // open modal when clicking the tile (but not the heart)
     tile.addEventListener("click", (e) => {
@@ -65,19 +65,80 @@ document.addEventListener("DOMContentLoaded", () => {
     modalName.textContent = pl.playlist_name;
     modalAuthor.textContent = "By " + pl.playlist_author;
     modalSongs.innerHTML = "";
+
     pl.songs.forEach((s) => {
       const li = document.createElement("li");
-      li.innerHTML = `
-        <img src="song.png" alt="song cover" class="song-cover" />
-        <div class="song-info">
-          <p class="song-title">${s.title}</p>
-          <p class="song-artist">${s.artist}</p>
-        </div>
-        <span class="song-duration">${s.duration}</span>
-        `;
+      li.className = "song-item";
+
+      // If song has Spotify ID, create embed
+      if (s.spotify_id) {
+        li.innerHTML = `
+            <div class="song-header">
+              <img src="song.png" alt="song cover" class="song-cover" />
+              <div class="song-info">
+                <p class="song-title">${s.title}</p>
+                <p class="song-artist">${s.artist}</p>
+              </div>
+              <span class="song-duration">${s.duration}</span>
+              <button class="expand-btn">
+                <span class="expand-icon">▼</span>
+              </button>
+            </div>
+            <div class="spotify-embed-container" style="display: none;">
+              <iframe 
+                src="https://open.spotify.com/embed/track/${s.spotify_id}?utm_source=generator&theme=0" 
+                width="100%" 
+                height="152" 
+                frameBorder="0" 
+                allowfullscreen="" 
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                loading="lazy">
+              </iframe>
+            </div>
+          `;
+
+        // Add event listener to the expand button
+        const expandBtn = li.querySelector(".expand-btn");
+        expandBtn.addEventListener("click", function () {
+          toggleEmbed(this);
+        });
+      } else {
+        // Fallback for songs without Spotify ID
+        li.innerHTML = `
+            <div class="song-header">
+              <img src="song.png" alt="song cover" class="song-cover" />
+              <div class="song-info">
+                <p class="song-title">${s.title}</p>
+                <p class="song-artist">${s.artist}</p>
+              </div>
+              <span class="song-duration">${s.duration}</span>
+              <span class="no-preview">No preview</span>
+            </div>
+          `;
+      }
+
       modalSongs.appendChild(li);
     });
+
     modal.classList.add("show");
+  }
+
+  // Function to toggle Spotify embed visibility
+  function toggleEmbed(button) {
+    const container = button
+      .closest(".song-item")
+      .querySelector(".spotify-embed-container");
+    const icon = button.querySelector(".expand-icon");
+
+    if (container.style.display === "none") {
+      container.style.display = "block";
+      icon.textContent = "▲";
+      button.setAttribute("aria-expanded", "true");
+    } else {
+      container.style.display = "none";
+      icon.textContent = "▼";
+      button.setAttribute("aria-expanded", "false");
+    }
   }
 
   // 4) Close handlers
