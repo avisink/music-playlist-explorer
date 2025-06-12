@@ -132,7 +132,9 @@ Deployed Application (**required**): [Music Playlist Explorer Deployed Site](htt
 ### Walkthrough Video
 
 [Walkthrough](https://drive.google.com/file/d/1vUeW2-oiTGOpIjdBWHgdYOVwdU4GlG38/view?usp=sharing)
-![trimmedunit2] (https://github.com/avisink/music-playlist-explorer/blob/main/trimmedunit2.gif)
+
+
+![trimmedunit2](https://github.com/avisink/music-playlist-explorer/blob/main/trimmedunit2.gif)
 
 
 ### Reflection
