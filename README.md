@@ -131,7 +131,8 @@ Deployed Application (**required**): [Music Playlist Explorer Deployed Site](htt
 
 ### Walkthrough Video
 
-[Walkthrough](https://drive.google.com/file/d/1YLMymA4sJI3k64pHYHhKo67lxqSbvZrB/view?usp=sharing)
+[Walkthrough](https://drive.google.com/file/d/1vUeW2-oiTGOpIjdBWHgdYOVwdU4GlG38/view?usp=sharing)
+![trimmedunit2] ()
 
 
 ### Reflection
