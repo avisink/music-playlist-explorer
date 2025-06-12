@@ -184,7 +184,7 @@
   
   .playlist-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 24px;
     padding: 40px 20px;
     max-width: 1400px;
@@ -202,6 +202,7 @@
     position: relative;
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     border: 1px solid rgba(255, 255, 255, 0.2);
+    min-width: 180px;
   }
   
   .playlist-tile:hover {
