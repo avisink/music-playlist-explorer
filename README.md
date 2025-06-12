@@ -50,13 +50,13 @@ Deployed Application (**required**): [Music Playlist Explorer Deployed Site](htt
       - [x] The like count on the playlist tile should decrease by 1.
       - [x] There should be visual feedback (such as the heart turning a different color) to show that the playlist has been unliked by the user.
     - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS:** In addition to showcasing the above features, for ease of grading, please film yourself liking and unliking:
-      - [ ] a playlist with a like count of 0
-      - [ ] a playlist with a non-zero like count
+      - [x] a playlist with a like count of 0
+      - [x] a playlist with a non-zero like count
 
 - [x] **Shuffle Songs**
   - [x] Enable users to shuffle the songs within a playlist using a shuffle button in the playlist's detail modal.
   - [x] When the shuffle button is clicked, the playlist's songs should display in a different order.
-  - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS:** In addition to showcasing the above features, for ease of grading, please show yourself shuffling the same playlist more than once. 
+  - [x] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS:** In addition to showcasing the above features, for ease of grading, please show yourself shuffling the same playlist more than once. 
   
 - [x] **Featured Page**
   - [x] Application includes a dedicated page that randomly selects and displays a playlist, showing the playlist’s:
@@ -69,8 +69,8 @@ Deployed Application (**required**): [Music Playlist Explorer Deployed Site](htt
   - [x] When the page is refreshed or reloaded, a new random playlist is displayed
     - For example, navigating to the all playlists page and then back to the featured playlist page should result in a new random playlist being displayed
     - Note that because your algorithm will not be truly random, it is possible that the same playlist will feature twice in a row. 
-    - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS:** In addition to showcasing the above features, for ease of grading, please show yourself refreshing the featured page more than once. 
-  - [ ] Application includes a navigation bar or some other mechanism such that users can navigate to the page with all playlists from the featured page and vice versa without using the browser's back and forward buttons. 
+    - [x] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS:** In addition to showcasing the above features, for ease of grading, please show yourself refreshing the featured page more than once. 
+  - [x] Application includes a navigation bar or some other mechanism such that users can navigate to the page with all playlists from the featured page and vice versa without using the browser's back and forward buttons. 
 
 #### STRETCH FEATURES
 
@@ -131,7 +131,7 @@ Deployed Application (**required**): [Music Playlist Explorer Deployed Site](htt
 
 ### Walkthrough Video
 
-[Walkthrough](https://music-playlist-explorer-by-ayo.netlify.app/)
+[Walkthrough](https://drive.google.com/file/d/1YLMymA4sJI3k64pHYHhKo67lxqSbvZrB/view?usp=sharing)
 
 
 ### Reflection
