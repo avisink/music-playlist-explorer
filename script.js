@@ -1,8 +1,42 @@
+let allPlaylists = [];
+
+// Function to load a random playlist (for featured page)
+function loadRandomPlaylist() {
+  if (allPlaylists.length === 0) return;
+  
+  // Generate random index
+  const randomIndex = Math.floor(Math.random() * allPlaylists.length);
+  const playlist = allPlaylists[randomIndex];
+  
+  // Update the featured playlist display
+  const featuredArt = document.getElementById("featured-art");
+  const featuredName = document.getElementById("featured-name");
+  const songListUl = document.getElementById("featured-song-list");
+  
+  if (featuredArt && featuredName && songListUl) {
+    featuredArt.src = playlist.playlist_art;
+    featuredName.textContent = playlist.playlist_name;
+    
+    // Update the song list
+    songListUl.innerHTML = "";
+    
+    playlist.songs.forEach((song) => {
+      const li = document.createElement("li");
+      li.innerHTML = `
+        <span class="song-title">${song.title}</span>
+        <span class="song-artist">${song.artist}</span>
+        <span class="song-duration">${song.duration}</span>
+      `;
+      songListUl.appendChild(li);
+    });
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("playlist-container");
   const modal = document.getElementById("playlist-modal");
 
-  // 1) Load playlists via fetch().then() chaining ---- HIGHLY MODIFIED FOR FEATURED PAGE BC WTH
+  // 1) Load playlists via fetch().then() chaining
   fetch("data.json")
     .then((response) => {
       if (!response.ok) {
@@ -11,42 +45,34 @@ document.addEventListener("DOMContentLoaded", () => {
       return response.json();
     })
     .then((data) => {
-        if (document.getElementById("playlist-container")) {
+        allPlaylists = data.playlists;
+        
+        // Handle main playlist page
+        if (container) {
           data.playlists.forEach(createPlaylistTile);
         }
+        
+        // Handle featured page
         if (document.getElementById("featured-art")) {
-          const playlists = data.playlists;
-          const randomIndex = Math.floor(Math.random() * playlists.length);
-          const pl = playlists[randomIndex];
-
-          // Update left section
-          document.getElementById("featured-art").src = pl.playlist_art;
-          document.getElementById("featured-name").textContent = pl.playlist_name;
-
-          // List song names under the playlist
-        //   const songNamesUl = document.getElementById("featured-songs");
-        //   songNamesUl.innerHTML = "";
-        //   pl.songs.forEach((song) => {
-        //     const li = document.createElement("li");
-        //     li.textContent = song.title;
-        //     songNamesUl.appendChild(li);
-        //   });
-
-          const songListUl = document.getElementById("featured-song-list");
-          songListUl.innerHTML = "";
-          pl.songs.forEach((song) => {
-            const li = document.createElement("li");
-            li.innerHTML = `
-          <span class="song-title">${song.title}</span>
-          <span class="song-artist">${song.artist}</span>
-          <span class="song-duration">${song.duration}</span>
-        `;
-            songListUl.appendChild(li);
-          });
+          loadRandomPlaylist();
         }
     })
     .catch((err) => {
       console.error("Failed to load playlists:", err);
+      console.log("Using sample data instead");
+      
+      // Fallback to sample data
+      allPlaylists = sampleData.playlists;
+      
+      // Handle main playlist page with sample data
+      if (container) {
+        sampleData.playlists.forEach(createPlaylistTile);
+      }
+      
+      // Handle featured page with sample data
+      if (document.getElementById("featured-art")) {
+        loadRandomPlaylist();
+      }
     });
 
     if (modal) {
@@ -64,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <img src="${pl.playlist_art}" alt="${pl.playlist_name}">
             <h3>${pl.playlist_name}</h3>
             <p>By ${pl.playlist_author}</p>
-            <span class="heart-icon">&#x2665;</span>
+            <span class="heart-icon" role="button" aria-label="like">🤍</span>
             <span class="like-count">${pl.likes}</span>
           `;
 
@@ -83,9 +109,11 @@ document.addEventListener("DOMContentLoaded", () => {
           let n = parseInt(count.textContent, 10);
           if (heart.classList.contains("liked")) {
             heart.classList.remove("liked");
+            heart.textContent="🤍";
             count.textContent = --n;
           } else {
             heart.classList.add("liked");
+            heart.textContent = "💚";
             count.textContent = ++n;
           }
         });
@@ -281,6 +309,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     }
+});
 
-  
+// Load new playlist when the page becomes visible (for navigation back to featured page)
+document.addEventListener("visibilitychange", () => {
+  if (!document.hidden && document.getElementById("featured-art")) {
+    // Small delay to ensure it feels like a new selection
+    setTimeout(() => {
+      loadRandomPlaylist();
+    }, 100);
+  }
 });

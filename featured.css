@@ -1,172 +1,219 @@
 @property --a{
-    syntax: '<angle>';
-    inherits: true;
-    initial-value: 0deg;
+  syntax: '<angle>';
+  inherits: true;
+  initial-value: 0deg;
+}
+@property --p {
+  syntax: '<percentage>';
+  inherits: true;
+  initial-value: 0%;
+}
+@property --c1 {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #000;
+}
+@property --c2 {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #000;
+}
+
+html {
+  --s: 80px;
+  --_g: #0000, var(--c1) 2deg calc(var(--a) - 2deg),#0000 var(--a);
+  background:
+    conic-gradient(from calc(-45deg  - var(--a)/2) at top    var(--p) left  var(--p),var(--_g)),
+    conic-gradient(from calc(-45deg  - var(--a)/2) at top    var(--p) left  var(--p),var(--_g)),
+    conic-gradient(from calc( 45deg  - var(--a)/2) at top    var(--p) right var(--p),var(--_g)),
+    conic-gradient(from calc( 45deg  - var(--a)/2) at top    var(--p) right var(--p),var(--_g)),
+    conic-gradient(from calc(-135deg - var(--a)/2) at bottom var(--p) left  var(--p),var(--_g)),
+    conic-gradient(from calc(-135deg - var(--a)/2) at bottom var(--p) left  var(--p),var(--_g)),
+    conic-gradient(from calc( 135deg - var(--a)/2) at bottom var(--p) right var(--p),var(--_g)),
+    conic-gradient(from calc( 135deg - var(--a)/2) at bottom var(--p) right var(--p),var(--_g))
+    var(--c2);
+  background-size: calc(2*var(--s)) calc(2*var(--s));
+  animation: m 2s infinite alternate linear;
+  min-height: 100vh;
+}
+
+@keyframes m {
+  0%,15% {
+    --a: 135deg;
+    --p: 20%;
+    --c1: #3B8183;
+    --c2: #FAD089;
+    background-position: 0 0,var(--s) var(--s);
   }
-  @property --p {
-    syntax: '<percentage>';
-    inherits: true;
-    initial-value: 0%;
+  45%,50% {
+    --a: 90deg;
+    --p: 25%;
+    --c1: #3B8183;
+    --c2: #FAD089;
+    background-position: 0 0,var(--s) var(--s);
   }
-  @property --c1 {
-    syntax: '<color>';
-    inherits: true;
-    initial-value: #000;
+  50.01%,55% {
+    --a: 90deg;
+    --p: 25%;
+    --c2: #3B8183;
+    --c1: #FAD089;
+    background-position: var(--s) 0,0 var(--s);
   }
-  @property --c2 {
-    syntax: '<color>';
-    inherits: true;
-    initial-value: #000;
+  85%,100% {
+    --a: 135deg;
+    --p: 20%;
+    --c2: #3B8183;
+    --c1: #FAD089;
+    background-position: var(--s) 0,0 var(--s);
   }
-  
-  html {
-    --s: 80px;
-    --_g: #0000, var(--c1) 2deg calc(var(--a) - 2deg),#0000 var(--a);
-    background:
-      conic-gradient(from calc(-45deg  - var(--a)/2) at top    var(--p) left  var(--p),var(--_g)),
-      conic-gradient(from calc(-45deg  - var(--a)/2) at top    var(--p) left  var(--p),var(--_g)),
-      conic-gradient(from calc( 45deg  - var(--a)/2) at top    var(--p) right var(--p),var(--_g)),
-      conic-gradient(from calc( 45deg  - var(--a)/2) at top    var(--p) right var(--p),var(--_g)),
-      conic-gradient(from calc(-135deg - var(--a)/2) at bottom var(--p) left  var(--p),var(--_g)),
-      conic-gradient(from calc(-135deg - var(--a)/2) at bottom var(--p) left  var(--p),var(--_g)),
-      conic-gradient(from calc( 135deg - var(--a)/2) at bottom var(--p) right var(--p),var(--_g)),
-      conic-gradient(from calc( 135deg - var(--a)/2) at bottom var(--p) right var(--p),var(--_g))
-      var(--c2);
-    background-size: calc(2*var(--s)) calc(2*var(--s));
-    animation: m 2s infinite alternate linear;
-    min-height: 100vh;
-  }
-  
-  @keyframes m {
-    0%,15% {
-      --a: 135deg;
-      --p: 20%;
-      --c1: #3B8183;
-      --c2: #FAD089;
-      background-position: 0 0,var(--s) var(--s);
-    }
-    45%,50% {
-      --a: 90deg;
-      --p: 25%;
-      --c1: #3B8183;
-      --c2: #FAD089;
-      background-position: 0 0,var(--s) var(--s);
-    }
-    50.01%,55% {
-      --a: 90deg;
-      --p: 25%;
-      --c2: #3B8183;
-      --c1: #FAD089;
-      background-position: var(--s) 0,0 var(--s);
-    }
-    85%,100% {
-      --a: 135deg;
-      --p: 20%;
-      --c2: #3B8183;
-      --c1: #FAD089;
-      background-position: var(--s) 0,0 var(--s);
-    }
-  }
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: none;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  padding: 1rem;
+  text-align: center;
+  background: white;
+  margin-bottom: 20px;
+}
+
+.navigation > ul{
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  width: auto;
+  gap: 35px;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+}
+
+.navigation a:hover {
+  background-color: #f0f0f0;
+}
+
+.featured-container {
+  display: flex;
+  max-width: 900px;
+  max-height: 65vh;
+  margin: 40px auto;
+  padding: 50px;
+  background: rgba(59, 129, 131, 0.8);
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+  overflow-y: auto;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.3);
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.featured-left-section {
+  flex: 1;
+  border-right: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 24px;
+  padding-top: 170px;
+}
+
+.featured-right-section {
+  flex: 2;
+  padding: 32px 24px;
+}
+
+#featured-art {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+}
+
+#featured-name {
+  margin: 0 0 16px 0;
+  font-size: 2rem;
+  text-align: center;
+}
+
+#featured-song-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 65vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#featured-song-list li {
+  list-style-type: none;
+  padding: 16px ;
+  border: 1px solid rgba(255,255,255,0.3);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(250, 208, 137, 1);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  display: flex;
+  transition: all 0.2s ease;
+
+}
+
+#featured-song-list li:last-child {
+  border-bottom: none;
+}
+
+.song-title {
+  font-weight: bold;
+  margin-right: 8px;
+  flex: 2;
+}
+
+.song-artist {
+  color: #888;
+  flex: 2;
+}
+
+.song-duration {
+  color: #666;
+  font-size: 0.9em;
+  flex: 1;
+  text-align: right;
+}
+
+.refresh-button {
+  background: rgba(250, 208, 137, 1);
+  color: rgba(59, 129, 131, 1);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+.refresh-button:hover {
+  background: #2a5f61;
+}
 
 
-  body {
-    font-family: Arial, sans-serif;
-    background: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  header {
-    padding: 1rem;
-    text-align: center;
-    background: white;
-  }
-  
-  .navigation > ul{
-    list-style: none;
-    display: flex;
-    width: auto;
-    gap:35px;
-  }
-  .featured-container {
-    display: flex;
-    max-width: 900px;
-    max-height: 700px;
-    margin: 40px auto;
-    padding:50px;
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-    overflow-y: auto;
-  }
-  
-  .featured-left, .featured-right {
-    padding: 32px 24px;
-  }
-  
-  .featured-left {
-    flex: 1;
-    border-right: 1px solid #eee;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  #featured-art {
-    width: 220px;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 12px;
-    margin-bottom: 24px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.10);
-  }
-  
-  #featured-name {
-    margin: 0 0 16px 0;
-    font-size: 2rem;
-    text-align: center;
-  }
-  
-  #featured-song-names {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-  }
-  
-  #featured-song-names li {
-    margin-bottom: 8px;
-    color: #555;
-    font-size: 1.1em;
-  }
-  
-  .featured-right {
-    flex: 2;
-  }
-  
-  #featured-song-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  #featured-song-list li {
-    padding: 12px 0;
-    border-bottom: 1px solid #eee;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  
-  #featured-song-list li:last-child {
-    border-bottom: none;
-  }
-  
-  .song-title {
-    font-weight: bold;
-    margin-right: 8px;
-  }
-  
-  .song-artist {
-    color: #888;
-  }

@@ -7,15 +7,14 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
   <body>
-
     <header>
-      <h1>Featured</h1>
+      <h1>Featured Playlist</h1>
       <nav>
         <div class="navigation">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#add-song"></a>Add Playlist</li>
-            </ul>
+          <ul>
+            <li><a href="index.html">All Playlists</a></li>
+            <li><a href="featured.html">Featured</a></li>
+          </ul>
         </div>
       </nav>
     </header>
@@ -23,20 +22,20 @@
     <main>
       <div class="featured-container">
         <section class="featured-left-section">
-            <img id="featured-art" src="" alt="Playlist Cover"/>
-            <h2 id="featured-name"></h2>
-            <ul id="featured-songs"></ul>
+          <img id="featured-art" src="" alt="Playlist Cover"/>
+          <h2 id="featured-name"></h2>
+          <button class="refresh-button" onclick="loadRandomPlaylist()">
+            Load New Featured Playlist
+          </button>
         </section>
 
         <section class="featured-right-section">
-            <h3>Songs</h3>
-            <ul id="featured-song-list"></ul>
+          <h3>Songs</h3>
+          <ul id="featured-song-list"></ul>
         </section>
       </div>
-
-    
-      
     </main>
+
     
     <script src="script.js"></script>
   </body>

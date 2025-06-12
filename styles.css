@@ -79,8 +79,33 @@
     padding: 1rem;
     text-align: center;
     background: white;
+    margin-bottom: 20px;
   }
-
+  .navigation {
+    padding:1rem;
+  }
+  .navigation > ul{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    width: auto;
+    gap: 35px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navigation a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+  }
+  
+  .navigation a:hover {
+    background-color: #f0f0f0;
+  }
   
   header h1 {
     color: #2c3e50;
@@ -157,7 +182,7 @@
   }
   
   .heart-icon {
-    font-size: 1.4em;
+    font-size: 2em;
     cursor: pointer;
     user-select: none;
     color: #bdc3c7;
@@ -171,7 +196,7 @@
   }
   
   .heart-icon.liked {
-    color: #e74c3c;
+    filter:drop-shadow(0 0 2px #1ed760);
     animation: heartbeat 0.6s ease-in-out;
   }
   
@@ -183,7 +208,7 @@
   
   .like-count {
     margin-left: 8px;
-    font-size: 0.9em;
+    font-size: 1em;
     vertical-align: middle;
     color: #7f8c8d;
     font-weight: 500;
@@ -508,3 +533,4 @@ button {
         height: 120px;
     }
   }
+  
