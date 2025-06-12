@@ -1,32 +1,78 @@
 let allPlaylists = [];
 
-// Function to load a random playlist (for featured page)
 function loadRandomPlaylist() {
   if (allPlaylists.length === 0) return;
-  
-  // Generate random index
+
   const randomIndex = Math.floor(Math.random() * allPlaylists.length);
   const playlist = allPlaylists[randomIndex];
-  
-  // Update the featured playlist display
+
   const featuredArt = document.getElementById("featured-art");
   const featuredName = document.getElementById("featured-name");
   const songListUl = document.getElementById("featured-song-list");
-  
+
   if (featuredArt && featuredName && songListUl) {
     featuredArt.src = playlist.playlist_art;
     featuredName.textContent = playlist.playlist_name;
-    
-    // Update the song list
     songListUl.innerHTML = "";
-    
+
     playlist.songs.forEach((song) => {
       const li = document.createElement("li");
-      li.innerHTML = `
-        <span class="song-title">${song.title}</span>
-        <span class="song-artist">${song.artist}</span>
-        <span class="song-duration">${song.duration}</span>
-      `;
+      li.className = "song-item";
+
+      if (song.spotify_id) {
+        li.innerHTML = `
+          <div class="song-header">
+          <img src="song.png" alt="song cover" class="song-cover" />
+            <div class="song-info">
+              <p class="song-title">${song.title}</p>
+              <p class="song-artist">${song.artist}</p>
+            </div>
+            <span class="song-duration">${song.duration}</span>
+            <button class="expand-btn">
+              <span class="expand-icon">▼</span>
+            </button>
+          </div>
+          <div class="spotify-embed-container" style="display: none;">
+            <iframe 
+              src="https://open.spotify.com/embed/track/${song.spotify_id}?utm_source=generator&theme=0" 
+              width="100%" 
+              height="152" 
+              frameBorder="0" 
+              allowfullscreen="" 
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+              loading="lazy">
+            </iframe>
+          </div>
+        `;
+        const expandBtn = li.querySelector(".expand-btn");
+        expandBtn.addEventListener("click", function () {
+          const container = li.querySelector(".spotify-embed-container");
+          const icon = expandBtn.querySelector(".expand-icon");
+          if (container.style.display === "none") {
+            container.style.display = "block";
+            icon.textContent = "▲";
+            icon.style.color = "green";
+            expandBtn.setAttribute("aria-expanded", "true");
+          } else {
+            container.style.display = "none";
+            icon.textContent = "▼";
+            icon.style.color = "black";
+            expandBtn.setAttribute("aria-expanded", "false");
+          }
+        });
+      } else {
+        li.innerHTML = `
+          <div class="song-header">
+            <img src="song.png" alt="song cover" class="song-cover" />
+            <div class="song-info">
+              <p class="song-title">${song.title}</p>
+              <p class="song-artist">${song.artist}</p>
+            </div>
+            <span class="song-duration">${song.duration}</span>
+            <span class="no-preview">No preview</span>
+          </div>
+        `;
+      }
       songListUl.appendChild(li);
     });
   }
