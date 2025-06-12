@@ -5,7 +5,7 @@ Submitted by: **Ayomide Isinkaye**
 
 Estimated time spent: **9** hours spent in total
 
-Deployed Application (**required**): [Music Playlist Explorer Deployed Site](ADD_LINK_HERE)
+Deployed Application (**required**): [Music Playlist Explorer Deployed Site](https://music-playlist-explorer-by-ayo.netlify.app/)
 
 ### Application Features
 
@@ -131,28 +131,33 @@ Deployed Application (**required**): [Music Playlist Explorer Deployed Site](ADD
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video actually renders and is playable when viewing this README. Ensure your walkthrough showcases the presence and/or functionality of all features you implemented above (check them off as you film!). Pay attention to any **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS** checkboxes listed above to ensure graders see the full functionality of your website! (🚫 Remove this paragraph after adding walkthrough video)
+[Walkthrough](https://music-playlist-explorer-by-ayo.netlify.app/)
 
-`ADD_EMBEDDED_CODE_HERE`
 
 ### Reflection
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Add your response here
+The topics covered in the labs were very helpful in preparing me for this assignment. The labs on DOM manipulation, event handling, and working with JSON data gave me a solid foundation for dynamically rendering playlists and handling user interactions like liking playlists and opening modals. However, I felt a bit unprepared when it came to implementing more advanced features like shuffling the playlist songs, making the modal itself, etc.
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-Add your response here
+If I had more time, I would have implemented the stretch features such as adding, editing, and deleting playlists, as well as the search and sorting functionalities. I would also improve the accessibility of the application, such as adding better keyboard navigation and ARIA labels. Additionally, I would refine the UI/UX, making the modal transitions smoother and adding more visual feedback for user actions. I would also write more modular code and possibly add unit tests to ensure reliability.
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+During my project demo, I was happy that the core features worked smoothly, especially the modal pop-up and the like/unlike functionality. One thing that didn’t go as planned was the initial implementation of the shuffle feature, which took some debugging to get right. I also noticed that some peers had very polished UI designs and implemented additional features like search and sorting, which made their apps more user-friendly. Next time, I would like to focus more on polish and possibly use more reusable components to make the codebase easier to main
 
 ### Open-source libraries used
 
-- Add any links to open-source libraries used in your project.
+- W3C schools
+- Prismic
 
 ### Shout out
 
 Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+
+- Lucia
+- Keith
+- Devarsh
+- Jessica
